@@ -29,7 +29,7 @@ const makeUser = () => {
         title: "How I eat so much cheese",
       },
     ],
-  };
+  } as User;
 };
 
 it("Should return a valid user", () => {

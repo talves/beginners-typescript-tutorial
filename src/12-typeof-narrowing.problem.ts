@@ -1,6 +1,13 @@
 import { expect, it } from "vitest";
 
-const coerceAmount = (amount: number | { amount: number }) => {};
+const coerceAmount = (amount: number | { amount: number }) => {
+  console.log(typeof amount)
+  if (typeof amount == 'number') {
+    return amount
+  }
+  const { amount: value} = amount
+  return value
+};
 
 it("Should return the amount when passed an object", () => {
   expect(coerceAmount({ amount: 20 })).toEqual(20);

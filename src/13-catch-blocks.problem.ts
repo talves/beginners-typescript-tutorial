@@ -1,3 +1,4 @@
+import { EventEmitter } from "stream";
 import { expect, it } from "vitest";
 
 const tryCatchDemo = (state: "fail" | "succeed") => {
@@ -5,8 +6,8 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
     if (state === "fail") {
       throw new Error("Failure!");
     }
-  } catch (e) {
-    return e.message;
+  } catch (e: any) {
+    return (e as Error).message;
   }
 };
 
